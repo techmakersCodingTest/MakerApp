@@ -1,3 +1,5 @@
+# Instructions
+
 What this code does is run the front-end in amplify, this front-end is made with react and Amplify API components.
 In this package all the user interface unrelated to the bog is managed, it connects to cognito in AWS, also it connects to S3 and an API gateway. 
 It uses cognito to manage authentication, S3 to manage all the information about the uploaded inventory and the API gateway to update the chatbot knowledge base.
