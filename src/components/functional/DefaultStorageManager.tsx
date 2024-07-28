@@ -18,12 +18,12 @@ type Props = {
   handleRefreshChange: (boolean) => void;
 }
 
-const processFile = async ({ file }) => {
-  const fileExtension = file.name.split('.').pop();
+const processFile = ({ file }) => {
+  const fileExtension = 'json'
   return file
     .arrayBuffer()
     .then((filebuffer) => window.crypto.subtle.digest('SHA-1', filebuffer))
-    .then((hashBuffer) => {
+    .then((hashBuffer) => { 
       const hashArray = Array.from(new Uint8Array(hashBuffer));
       const hashHex = hashArray
         .map((a) => a.toString(16).padStart(2, '0'))
@@ -32,12 +32,28 @@ const processFile = async ({ file }) => {
     });
 };
 
+const callAPI = async () => {
+  // Aquí es donde se envía el archivo procesado al endpoint
+  const response = await fetch('https://f2jozc6rv5.execute-api.us-east-1.amazonaws.com/MakersStage/', {
+    method: 'POST',
+  });
+
+  if (!response.ok) {
+    console.log("xd")
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+  console.log("xd")
+  return await response.json();
+};
+
 const DefaultStorageManager = ({ handleRefreshChange }: Props) => {
   // Estado para almacenar el Blob del archivo
   const [pdfFile, setPdfFile] = useState("");
 
   // Función para manejar el archivo cargado
-  const handleFileChange = () => {
+  const handleFileChange = async (key) => {
+    await callAPI();
+    console.log("xd")
     handleRefreshChange(true)
   };
 
@@ -47,11 +63,11 @@ const DefaultStorageManager = ({ handleRefreshChange }: Props) => {
     <div>
       <StorageManager
         acceptedFileTypes={[
-          'application/pdf'  // Asegúrate de incluir 'application/pdf' si solo trabajas con PDFs
+          'application/json'  // Asegúrate de incluir 'application/pdf' si solo trabajas con PDFs
         ]}
-        path={({ identityId }) => `private/${identityId}/`}
+        path={"public/"}
         maxFileCount={1}
-        showThumbnails={true}
+        showThumbnails={true} 
         displayText={{
           dropFilesText: 'Arrastrar y soltar archivos aquí para subir',
           browseFilesText: 'Escoger archivo',
@@ -60,7 +76,9 @@ const DefaultStorageManager = ({ handleRefreshChange }: Props) => {
           console.log("xd")
         }}
         processFile={processFile}
-        onUploadSuccess={handleFileChange}
+        onUploadSuccess={({ key }) => {
+          handleFileChange(key);
+        }}
         components={{
           FileList({ files, onCancelUpload, onDeleteUpload }) {
             return (

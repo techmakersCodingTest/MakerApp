@@ -25,7 +25,7 @@ const Topbar = ({ open, handleDrawerOpen }: Props) => {
                 <MenuIcon />
             </IconButton>
             <Typography variant="h6" noWrap component="div" paddingRight="20px">
-                Liberta Track
+                Makers Tech
             </Typography>
             <IconButton
                 onClick={() => signOut()}

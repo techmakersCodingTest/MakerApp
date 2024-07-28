@@ -7,7 +7,7 @@ import { routes } from "./routes"
 
 const App = () => {
   return (
-    <Authenticator>
+    <Authenticator >
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<MainLayout />}>

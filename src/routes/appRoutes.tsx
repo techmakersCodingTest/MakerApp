@@ -1,15 +1,14 @@
 import { RouteType } from "./config";
 import HomePage from "../pages/virtual-assistant/VirtualAssistantPage";
-import ModernSlaveryPageLayout from "../pages/modern-slavery/ModernSlaveryPageLayout";
+import ModernSlaveryPageLayout from "../pages/admin/ModernSlaveryPageLayout";
 import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
-import ModernSlaveryIndex from "../pages/modern-slavery/ModernSlaveryIndex";
+import ModernSlaveryIndex from "../pages/admin/ModernSlaveryIndex";
 import ProfilePage from "../pages/profile/ProfilePage";
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import BenchmarkingToolPage from "../pages/modern-slavery/BenchmarkingToolPage";
-import PerformanceResultsPage from "../pages/modern-slavery/PerformanceResultsPage";
+import PerformanceResultsPage from "../pages/admin/PerformanceResultsPage";
 import VirtualAssistantPage from "../pages/virtual-assistant/VirtualAssistantPage";
 import SmartToySharpIcon from '@mui/icons-material/SmartToySharp';
-import UploadDocumentsPage from "../pages/modern-slavery/UploadDocumentsPage";
+import UploadDocumentsPage from "../pages/admin/UploadDocumentsPage";
 
 const appRoutes: RouteType[] = [
     {
@@ -18,20 +17,11 @@ const appRoutes: RouteType[] = [
         state: "home"
     },
     {
-        path: "/profile",
-        element: <ProfilePage />,
-        state: "profile",
-        sidebarProps: {
-            displayText: "Perfil",
-            icon: <AccountBoxIcon />
-        }
-    },
-    {
-        path: "/modern-slavery",
+        path: "/admin",
         element: <ModernSlaveryPageLayout />,
-        state: "modern-slavery",
+        state: "admin",
         sidebarProps: {
-            displayText: "Modern Slavery",
+            displayText: "Opciones Admin",
             icon: <DashboardOutlinedIcon />
         },
         child: [
@@ -41,25 +31,15 @@ const appRoutes: RouteType[] = [
                 state: "benchmarking-tool.index"
             },
             {
-                path: "/modern-slavery/benchmarking-tool",
-                element: <BenchmarkingToolPage />,
-                state: "modern-slavery.benchmarking-tool",
-                sidebarProps: {
-                    displayText: "Benchmarking Tool"
-                }
-            },
-            {
-                path: "/modern-slavery/performance-results",
+                path: "/admin/performance-results",
                 element: <PerformanceResultsPage />,
-                state: "modern-slavery.performance-results",
-                sidebarProps: {
-                    displayText: "Resultados de Desempeño"
-                }
+                state: "admin.performance-results",
+
             },
             {
-                path: "/modern-slavery/upload-documents",
+                path: "/admin/upload-documents",
                 element: <UploadDocumentsPage />,
-                state: "modern-slavery.upload-documents",
+                state: "admin.upload-documents",
                 sidebarProps: {
                     displayText: "Subir Documentos"
                 }
@@ -73,7 +53,7 @@ const appRoutes: RouteType[] = [
         sidebarProps: {
             displayText: "Asistente Virtual",
             icon: <SmartToySharpIcon />
-        }
+        },        
     }
 ]
 

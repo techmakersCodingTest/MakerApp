@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@aws-amplify/backend": "^1.0.1",
-    "@aws-amplify/ui-react": "^6.1.9",
+    "@aws-amplify/ui-react": "^6.1.14",
     "@aws-amplify/ui-react-storage": "^3.1.0",
     "@chatscope/chat-ui-kit-react": "^2.0.3",
     "@emotion/react": "^11.11.4",
@@ -19,7 +19,8 @@
     "@mui/icons-material": "^5.15.16",
     "@mui/material": "^5.15.16",
     "@reduxjs/toolkit": "^2.2.4",
-    "aws-amplify": "^6.2.0",
+    "ampx": "^0.2.1",
+    "aws-amplify": "^6.4.3",
     "bootstrap": "^5.3.3",
     "cors": "^2.8.5",
     "express": "^4.19.2",
@@ -47,5 +48,5 @@
     "vite": "^5.2.0",
     "vue-tsc": "1"
   },
-  "proxy":"http://localhost:3000"
+  "proxy": "http://localhost:3000"
 }
