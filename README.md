@@ -1,30 +1,18 @@
-# React + TypeScript + Vite
+# Instructions
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+What this code does is run the front-end in amplify, this front-end is made with react and Amplify API components.
+In this package all the user interface unrelated to the bog is managed, it connects to cognito in AWS, also it connects to S3 and an API gateway. 
+It uses cognito to manage authentication, S3 to manage all the information about the uploaded inventory and the API gateway to update the chatbot knowledge base.
 
-Currently, two official plugins are available:
+In order to run this code you need to first run the repository of the cdk-repository. 
+Then, once is ran and all the information is retrieve you have to update the .env file.
+With that done, you run
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```sh
+npm install
 ```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+And then
+```sh
+npm run dev
+```
+Once done that it should be running in your local host.
