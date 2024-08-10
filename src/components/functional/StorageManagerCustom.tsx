@@ -34,7 +34,7 @@ const StorageManagerCustom = () => {
         <div>
             <StorageManager
                 acceptedFileTypes={[
-                    'application/json'  // Asegúrate de incluir 'application/pdf' si solo trabajas con PDFs
+                    'application/json' 
                 ]}
                 path={({ identityId }) => `private/${identityId}/`}
                 maxFileCount={1}
